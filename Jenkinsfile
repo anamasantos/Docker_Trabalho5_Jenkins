@@ -1,5 +1,5 @@
 pipeline{
-    agent{ label "docker"}
+    agent{ label "linux"}
     stages{
         stage("build"){
             steps{
@@ -8,7 +8,6 @@ pipeline{
                 """
             }
         }
-
         stage("run"){
             steps{
                  sh """
