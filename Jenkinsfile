@@ -1,20 +1,15 @@
 pipeline{
-    agent{ label "linux"}
+    agent any
     stages{
         stage("build"){
-            steps{
-                git url: 'https://github.com/anamasantos/Docker_Trabalho5_Jenkins', branch: 'main' 
+            steps{ 
 
-                sh """
-                    docker build -t ola_mundo .
-                """
+                sh "docker build -t ola_mundo ."
             }
         }
         stage("run"){
             steps{
-                 sh """
-                    docker run -rm ola_mundo
-                """
+                 sh "docker run --rm ola_mundo"
             }
         }
     }
